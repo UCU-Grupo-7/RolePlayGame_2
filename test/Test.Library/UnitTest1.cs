@@ -13,16 +13,27 @@ namespace RoleplayGame
         public void Curar()
         {
             Dwarf gimli = new Dwarf("Gimli");
-            /* gimli.Axe = new Axe();
-            gimli.Helmet = new Helmet();
-            gimli.Shield = new Shield(); */
-            gilmi.Cure();
-            Assert.AreEqual(100, Dwarf.health);
+            gimli.Cure();
+            Assert.That(gimli.Health, Is.EqualTo(100));
         }
         [Test]
-        public void Test2()
+        public void Atacar()
         {
-            Assert.Pass();
+            SpellsBook book = new SpellsBook();
+            book.Spells = new Spell[]{ new Spell() };
+
+            Wizard gandalf = new Wizard("Gandalf");
+            gandalf.Staff = new Staff();
+            gandalf.SpellsBook = book; 
+
+            Dwarf gimli = new Dwarf("Gimli");
+            //gimli.Axe = new Axe();
+            gimli.Helmet = new Helmet();
+            gimli.Shield = new Shield(); 
+
+            gandalf.Attack(gimli);
+
+            Assert.That(gimli.Health, Is.EqualTo(40));
         }
         [Test]
         public void Test3()
