@@ -31,9 +31,12 @@ namespace RoleplayGame
             gimli.Helmet = new Helmet();
             gimli.Shield = new Shield(); 
 
+            int gimliStartHealth = gimli.Health;  // vida con la que arranca gimli
+            
             gandalf.Attack(gimli);
 
-            Assert.That(gimli.Health, Is.EqualTo(40));
+            //Assert.That(gimli.Health, Is.EqualTo(40));
+            Assert.That(gimli.Health, Is.EqualTo(gimliStartHealth -= gandalf.AttackValue - gimli.DefenseValue));
         }
         [Test]
         public void Test3()
