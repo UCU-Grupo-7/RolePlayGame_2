@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public interface IWeapons
+    public interface IAttackItem
     {
         public int AttackValue {get; }
     }

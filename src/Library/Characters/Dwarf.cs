@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+
+
 namespace RoleplayGame
 {
     public class Dwarf : ICharacter
@@ -11,17 +14,21 @@ namespace RoleplayGame
 
         public string Name { get; set; }
 
-        public Axe Axe { get; set; }
+        //public Axe Axe { get; set; }
 
-        public Shield Shield { get; set; }
+        public IAttackItem AttackItem{ get; set; }
 
-        public Helmet Helmet { get; set; }
+        public List<IDefenseItem> DefenseItem { get; set; }
+
+        //public Shield Shield { get; set; }
+
+        //public Helmet Helmet { get; set; }
 
         public int AttackValue
         {
             get
             {
-                return Axe.AttackValue;
+                return this.AttackItem.AttackValue;
             }
         }
 
@@ -29,7 +36,14 @@ namespace RoleplayGame
         {
             get
             {
-                return Shield.DefenseValue + Helmet.DefenseValue;
+                int defense = 0;
+                foreach (IDefenseItem item in DefenseItem)
+                {
+                    defense += item.DefenseValue;
+                    
+                } 
+
+                return defense;
             }
         }
 

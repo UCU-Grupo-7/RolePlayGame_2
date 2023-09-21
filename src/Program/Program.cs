@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RoleplayGame;
 
 namespace Program
@@ -15,9 +16,12 @@ namespace Program
             gandalf.SpellsBook = book;
 
             Dwarf gimli = new Dwarf("Gimli");
-            gimli.Axe = new Axe();
+            gimli.DefenseItem = new List<IDefenseItem>() {new Helmet(), new Shield()} ;
+            gimli.AttackItem = new Axe();
+
+            /* gimli.Axe = new Axe();
             gimli.Helmet = new Helmet();
-            gimli.Shield = new Shield();
+            gimli.Shield = new Shield(); */
 
             Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
             Console.WriteLine($"Gandalf attacks Gimli with ⚔️ {gandalf.AttackValue}");

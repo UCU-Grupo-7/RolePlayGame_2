@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace RoleplayGame
 {
@@ -27,9 +28,9 @@ namespace RoleplayGame
             gandalf.SpellsBook = book; 
 
             Dwarf gimli = new Dwarf("Gimli");
-            //gimli.Axe = new Axe();
-            gimli.Helmet = new Helmet();
-            gimli.Shield = new Shield(); 
+            gimli.DefenseItem = new List<IDefenseItem>() {new Helmet(), new Shield()} ;
+            gimli.AttackItem = new Axe();
+            
 
             int gimliStartHealth = gimli.Health;  // vida con la que arranca gimli
             

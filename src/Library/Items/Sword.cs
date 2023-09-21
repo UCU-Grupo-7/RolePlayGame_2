@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public class Sword : IWeapons, IPhysicalItem
+    public class Sword : IAttackItem
     {
         public int AttackValue 
         {
