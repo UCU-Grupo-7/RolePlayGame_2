@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace RoleplayGame
 {
     public class Archer : ICharacter
@@ -10,15 +12,24 @@ namespace RoleplayGame
 
         public string Name { get; }
         
-        public Bow Bow { get; set; }
+        public List<IAttackItem> AttackItem { get; set; }
+        //public bow bow { get; set; }
 
-        public Helmet Helmet { get; set; }
+        public IDefenseItem DefenseItem { get; set; }
+        //public Helmet Helmet { get; set; }
 
         public int AttackValue
         {
             get
             {
-                return Bow.AttackValue;
+                int attack = 0;
+                foreach (IAttackItem item in AttackItem)
+                {
+                    attack += item.AttackValue;
+                    
+                } 
+
+                return attack;
             }
         }
 
@@ -26,7 +37,7 @@ namespace RoleplayGame
         {
             get
             {
-                return Helmet.DefenseValue;
+                return DefenseItem.DefenseValue;
             }
         }
 

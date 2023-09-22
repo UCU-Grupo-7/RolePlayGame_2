@@ -13,7 +13,7 @@ namespace RoleplayGame
         }
 
         public string Name { get; set; }
-
+        
         //public Axe Axe { get; set; }
 
         public IAttackItem AttackItem{ get; set; }
